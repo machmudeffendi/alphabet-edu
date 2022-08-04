@@ -7,6 +7,8 @@
   <title>Alphabet Education</title>
   <!-- <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <style>
+  </style>
 </head>
 <body>
   
@@ -23,26 +25,24 @@
     <div class="container mt-3">
       <div class="row">
         <div class="col-md-12 col-lg-6">
-          <div class="card">
-            <div class="card-body py-5">
-              <h1 style="font-size: 300px;" class="text-center">A</h1>
+          <div class="sticky-top">
+            <div class="card ">
+              <div class="card-body py-5">
+                <h1 style="font-size: 300px;" class="text-center" id="title-first">A</h1>
+              </div>
             </div>
-          </div>
-          <div class="mt-3">
-            <h2>Huruf A</h2>
-            <span class="text-muted">A merupakan huruf pertama dalam alfabet Latin, dan berasal (turunan) dari huruf olllYunani, Alfa. Huruf kapital "A" memiliko 2 sisi miring segitiga dengan garis horizontal di tengahnya, sementara huruf kecilnya dapa O ot ditulis dengan 2 tipe/versi: a dan ɑ. Ollj "<a href="https://id.wikipedia.org/wiki/A">Wikipedia</a>"</span>
-            <hr/>
+            <div class="mt-3">
+              <h2 id="title-secondary">Huruf A</h2>
+              <span class="text-muted" id="desc-secondary">A merupakan huruf pertama dalam alfabet Latin, dan berasal (turunan) dari huruf olllYunani, Alfa. Huruf kapital "A" memiliko 2 sisi miring segitiga dengan garis horizontal di tengahnya, sementara huruf kecilnya dapa O ot ditulis dengan 2 tipe/versi: a dan ɑ. Ollj</span>
+              <span class="text-muted">
+                , Sumber: <a id="link-secondary" href="https://id.wikipedia.org/wiki/A">Wikipedia</a>
+              </span>
+              <hr/>
+            </div>
           </div>
         </div>
         <div class="col-md-12 col-lg-6">
-          <div class="row g-4">
-            <div class="col-4">
-              <div class="card" role="button">
-                <div class="card-body py-5">
-                  <h2 style="font-size: 50px;" class="text-center">A</h2>
-                </div>
-              </div>
-            </div>
+          <div class="row g-4" id="alphas-list">
           </div>
         </div>
       </div>
@@ -51,7 +51,66 @@
 
   <!-- <script src="node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+  <script>
+    let alphas = [
+      {title: 'A', desc: 'A merupakan huruf pertama dalam alfabet Latin, dan berasal (turunan) dari huruf olllYunani, Alfa. Huruf kapital "A" memiliko 2 sisi miring segitiga dengan garis horizontal di tengahnya, sementara huruf kecilnya dapa O ot ditulis dengan 2 tipe/versi: a dan ɑ. Ollj', link: 'https://id.wikipedia.org/wiki/A'},
+      {title: 'B', desc: 'B adalah huruf kedua dalam alfabet Latin. Dalam bahasa Latin dan bahasa lain pada umumnya (termasuk bahasa Indonesia), huruf ini biasanya melambangkan konsonan dwibibir, khususnya fonem [b], konsonan letup konsonan letup dwibibir bersuara. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'C', desc: 'C adalah huruf ketiga dalam alfabet Latin. Dalam bahasa Indonesia, huruf ini disebut ce (dibaca [tʃe]). Dalam bahasa Latin Klasik, huruf ini melambang fonem /k/, konsonan letup langit-langit belakang tak bersuara, sedangkan dalam bahasa Indonesia dan Melayu huruf ini melambangkan fonem /tʃ/, konsonan gesek pascarongga-gigi tak bersuara. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'D', desc: 'D adalah huruf keempat dalam alfabet Latin. Dalam bahasa Indonesia disebut de (dibaca [ˈde]), sedangkan dalam bahasa Melayu disebut di (dibaca [ˈdiː]). Dalam bahasa Latin dan bahasa Indonesia, huruf ini melambangkan fonem /d/, konsonan letup rongga-gigi bersuara. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'E', desc: 'E adalah huruf Latin yang kelima. Huruf ini biasanya melambangkan bunyi vokal tak bulat depan hampir tertutup. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'F', desc: 'F adalah huruf Latin ke-6. Namanya dalam bahasa Indonesia adalah ef (dibaca [ɛf]). Huruf ini sering digunakan untuk menandai bunyi konsonan geser bibir-gigi nirsuara. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'G', desc: 'Huruf G atau g adalah huruf ke-7 dalam alfabet Latin. Dalam bahasa Indonesia dan Melayu, huruf G mewakili konsonan letup langit-langit belakang bersuara (/ɡ/). Huruf G juga digunakan dalam dwihuruf "ng" untuk konsonan sengau langit-langit belakang (/ŋ/). ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'H', desc: 'H adalah huruf ke-8 dalam alfabet Latin. Dalam bahasa Indonesia, huruf ini disebut ha. Huruf ini biasanya melambangkan konsonan desis celah suara nirsuara. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'I', desc: 'Huruf I atau i\'jjj adalah huruf ke-9 dalam alfabet Latin. I merupakan lambang angka 1 (satu) atau tahun 1 dalam angka Romawi.', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'J', desc: 'J adalah huruf kesepuluh dalam alfabet Latin, dan huruf terakhir yang ditambah dalam kalangan 26 huruf. Namanya dalam bahasa Indonesia adalah je. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'K', desc: 'K adalah huruf ke-11 dalam alfabet Latin. Dalam bahasa Indonesia, namanya disebut ka. Huruf K berasal dari huruf Κ (kapa) Yunani, yang diambil dari huruf kap dalam abjad bahasa Semit, yang berbentuk lambang tangan terbuka.[1] Huruf kap itu mungkin dipinjam oleh kaum Semit yang tinggal di Mesir dari hieroglif bentuk "tangan" yang melambangkan bunyi /d/ pada kata "tangan" dalam bahasa Mesir Kuno, yaitu d-r-t. Orang Semit menetapkan bunyi /k/ untuk huruf ini karena kata "tangan" dalam bahasa mereka diawali dengan bunyi tersebut.', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'L', desc: 'L adalah huruf ke-12 dalam alfabet Latin. Huruf ini disebut el, dibaca [ɛl]. Huruf L berasal dari bentuk huruf Semit "tongkat" atau "kambing" yang mewakili bunyi /l/. Ini mungkin berdasarkan hieroglif Mesir yang telah diadaptasi oleh orang Semit untuk tujuan penulisan. Huruf Yunani Lambda Λ (huruf besar) atau λ (huruf kecil), yang juga merupakan huruf Etruska serta Latin, mewakili bunyi yang sama sebagaimana huruf Semit tersebut.', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'M', desc: 'M adalah huruf Latin modern ke-13 yang dibaca [ɛm]. Bentuk huruf M berasal dari huruf Fenisia Mem, melalui huruf Yunani Mu (Μ, μ). Huruf Mem Semit kemungkinan besar melambangkan air. Diketahui bahawa masyarakat Semit yang hidup di Mesir kira-kira 2000 SM mengadaptasi hierogif "air" yang mulanya melambangkan konsonan sengau rongga-gigi (/n/), karena kata Mesir untuk "air" berbunyi "n-t". Simbol itu dijadikan huruf M dalam bahasa Semit, karena kata air dalam bahasa mereka diawali dengan bunyi tersebut.', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'N', desc: 'N adalah huruf Latin yang ke-14. Namanya disebut en (dibaca [ɛn]). Salah satu hieroglif berupa ular di Mesir Kuno digunakan untuk melambangkan bunyi huruf J seperti dalam kata "jari", karena perkataan Mesir bagi "ular" berbunyi djet. Dipercaya bahwa bangsa Semit di Mesir menyesuaikan hieroglif untuk menciptakan abjad pertama, dan maka dari itu menggunakan lambang ular bagi bunyi /n/, karena kata "ular" dalam bahasa mereka mungkin sekali diawali dengan konsonan tersebut, tetapi nama huruf ini dalam abjad Fenisia, Ibrani, Aramea dan Arab berbunyi nun, yaitu "ikan" dalam beberapa bahasa tersebut. Huruf ini berbunyi /n/, seperti dalam alfabet Yunani, Etruska, Latin dan semua bahasa pada masa sekarang. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'O', desc: 'O adalah huruf Latin modern yang ke-15, disebut o. Dalam bahasa Indonesia dibaca [o]. Huruf O berasal dari huruf Semit `Ayin (mata) yang melambangkan konsonan, kemungkinan konsonan desis hulu kerongkongan bersuara (ʕ), yang juga dilambangkan oleh huruf Arab ع (`Ayn). Huruf Semit dalam bentuk asalnya tampaknya diilhami oleh bentuk hieroglif Mesir untuk "mata". ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'P', desc: 'P adalah huruf Latin modern yang ke-16. Dalam bahasa Indonesia disebut pe. Huruf P berasal dari huruf Proto-Semit Pi’t yang berarti "mulut", yang juga menurunkan huruf Fenisia pe, serta huruf-huruf Yunani (Pi) dan Etruska yang berkembang dari huruf Fenisia tersebut. Semuanya melambangkan bunyi /p/, yaitu konsonan letup dwibibir nirsuara.', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'Q', desc: 'Q adalah huruf ke-17 dalam alfabet Latin. Dalam bahasa Indonesia, namanya ki; sedangkan dalam Bahasa Melayu disebut kyu. Nilai bunyi huruf Semit Qôp (mungkin pada mulanya qaw \'gulungan tali\', dan mungkin berdasarkan kepada hieroglif Mesir) adalah /q/ (konsonan letup tekak nirsuara), suatu bunyi biasa untuk rumpun bahasa Semit, tetapi tidak dijumpai dalam bahasa Inggris atau Indo-Eropa lainnya', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'R', desc: 'R adalah huruf Latin modern yang ke-18. Dalam bahasa Indonesia disebut er, dibaca [ɛr]. Bentuk huruf Semit asalnya mungkin diilhami dari hieroglif Mesir yang berarti "kepala", disebut t-p dalam bahasa Mesir Kuno, tetapi dipinjam oleh orang Semit untuk lambang bunyi /r/ karena dalam bahasa mereka, kata "kepala" berbunyi Rêš (akhirnya menjadi nama hurufnya). Huruf tersebut berkembang menjadi Ρ ῥῶ (Rhô) Yunani dan R Latin.', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'S', desc: 'S adalah huruf ke-19 dalam alfabet Latin. Huruf ini disebut es, dibaca [ɛs]. Huruf Syin ("gigi") dari rumpun bahasa Semit pernah melambangkan konsonan desis pascarongga-gigi nirsuara /ʃ/ (seperti dalam kata syarat). Bentuk asalnya mungkin menggambarkan gigi atau buah dada. Bahasa Yunani tidak mengandung bunyi /ʃ/ tersebut, maka huruf sigma (Σ) digunakan untuk mewakili /s/.', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'T', desc: 'T adalah huruf Latin modern yang ke-20. Dalam bahasa Indonesia disebut te. Taw merupakan huruf terakhir abjad Semit Barat dan Ibrani, kemungkinan melambangkan silang atau salib. Nilai bunyi huruf Taw, Tαυ (Tau) Yunani, dan T Italik Kuno dan Romawi sama, yaitu menandakan fonem /t/; begitu juga dengan bentuk dasarnya dalam semua abjad-abjad tersebut. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'U', desc: 'U adalah huruf Latin modern yang ke-21. Biasanya melambangkan vokal belakang tertutup bulat ([u]), menggantikan fungsi huruf V yang beralih sebagai lambang Konsonan desis bibir-gigi bersuara. Huruf U berasal dari variasi huruf V pada masa Romawi Kuno. Asalnya dari huruf upsilon Yunani, yang melambangkan vokal /y/. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'V', desc: 'V adalah huruf Latin modern yang ke-22. Dalam bahasa Indonesia, huruf ini disebut ve meski dibaca [fe]. Awalnya huruf ini melambangkan bunyi [u], vokal belakang tertutup bulat, tetapi vokal tersebut menjadi huruf tersendiri (U), sementara V menjadi lambang bunyi [v] (info) (konsonan desis bibir-gigi bersuara). Dalam bahasa Indonesia sering dilafalkan seperti [f] (info) (konsonan desis bibir-gigi tak bersuara). ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'W', desc: 'W adalah huruf Latin modern yang ke-23. Dalam bahasa Indonesia, huruf ini bernama we. Dalam Alfabet Fonetik Internasional, huruf W mewakili bunyi konsonan hampiran langit-langit belakang terbibirkan bersuara. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'X', desc: 'X adalah huruf ke-24 dalam alfabet Latin. Huruf ini dibaca /ɛks/. Dalam ilmu fonetik, x adalah lambang IPj ygA dan X-SAMPA bagi konsonan desis langit-langit belakang nirsuara, seperti dwihuruf "kh" pada kata "khusus" dalam bahasa Indonesia. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'Y', desc: 'Y adalah huruf Latin modern yang ke-25. Dalam bahasa Indonesia disebut ye. Dalam berbagai bahasa, Y memiliki nilai bunyi yang berbeda-beda. Alfabet Fonetis Internasional memakai huruf Y kecil sebagai lambang bunyi vokal bulat depan tertutup. ', link: 'https://id.wikipedia.org/wiki/B'},
+      {title: 'Z', desc: 'Z ialah huruf Latin modern yang ke-26 dan terakhir, disebut zed, dibaca [zɛd]. Di Amerika, Z disebut zi, dibaca [ziː].', link: 'https://id.wikipedia.org/wiki/B'}
+    ]
+    $(() => {
+      alphas.forEach((item, index) => {
+        // $('.alpha-item').clone().appendTo('#alphas-list');
+        $('#alphas-list').append(`
+          <div class="col-4 alpha-item" onclick="selectAlpha('${index}')">
+            <div class="card" role="button">
+              <div class="card-body py-5">
+                <h2 style="font-size: 50px;" class="text-center">${item.title}</h2>
+              </div>
+            </div>
+          </div>
+        `);
+      });
+    })
+
+    function selectAlpha(index){
+      let item = {};
+      if(index){
+        item = alphas[index];
+      }
+
+      $('#title-first').text(item.title)
+      $('#title-secondary').text(item.title)
+      $('#desc-secondary').text(item.desc)
+      $('#link-secondary').attr('src', item.link)
+      
+    }
+  </script>
 </body>
 </html>
